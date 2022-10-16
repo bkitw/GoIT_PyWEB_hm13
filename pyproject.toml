@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "here-comes-the-money"
+version = "0.1.0"
+description = ""
+authors = ["Сергей Сытник <sytnikserhii22038@gmail.com>"]
+readme = "README.md"
+packages = [{include = "here_comes_the_money"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^4.1.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

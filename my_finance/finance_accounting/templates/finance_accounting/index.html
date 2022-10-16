@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Finance Assistant</title>
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+</head>
+<body>
+<main class="container">
+    <nav style="margin-bottom: 20px; border-bottom: 2px solid; padding-left: 30px">
+        <h2>Welcome to your finance assistant!</h2>
+        <ul>
+            <li><a href="/add_category/" role="button">Add Category</a></li>
+            <li><a href="/add_operation/" role="button">Add Operation</a></li>
+            <li><a href="/detail/" role="button">View report</a></li>
+        </ul>
+    </nav>
+    <h3>Balance: {{balance}}</h3>
+    <h4>Recent operations:</h4>
+    {% if operations%}
+    {% for operation in operations%}
+    <ul>
+        {%if operation.type is True%}
+        <li>
+            {{operation.category.name}} : <span style="color:green"> {{operation.sum}}</span> | {{operation.created_at}} UTC
+        </li>
+        {%else%}
+        <li>
+            {{operation.category.name}} : <span style="color:red"> {{operation.sum}}</span> | {{operation.created_at}} UTC
+        </li>
+        {%endif%}
+    </ul>
+    {%endfor%}
+    {%else%}
+    <h3>Not any:/</h3>
+    {%endif%}
+</main>
+</body>
+</html>
